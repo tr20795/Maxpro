@@ -1,0 +1,38 @@
+ @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_display);
+    }
+
+
+
+            HashMap p = new HashMap<>();
+            p.put("school", 10);
+            p.put("work", 8);
+            p.put("sports", 6);
+            p.put("social", 4);
+            p.put("errands", 2);
+            Object[] a = p.entrySet().toArray();
+            // this lists out the priority of the tasks that should be done. it will go from 10 down to 2
+            // 10 is most important which is school then it goes down all the way to 2 which is your errands
+            Arrays.sort
+                    (a, new Comparator() {
+                                public int compare(Object o1, Object o2) {
+                                    return ((Map.Entry<String, Integer>) o2).getValue()
+                                            .compareTo(((Map.Entry<String, Integer>) o1).getValue());
+                                }
+                            }
+                            //this command will compare the two tasks that needs to be done and will select
+                            //which task is more important.
+
+                    );
+            for (Object e : a) {
+                Log.d("DATA", ((Map.Entry<String, Integer>) e).getKey() + " : "
+                        + ((Map.Entry<String, Integer>) e).getValue());
+                // here is where it evaluated if task which is valued at 10 is compared to a task valued at 6.
+                // task valued at 10 will come as a priority.
+
+            }
+
+
+
